@@ -3,7 +3,6 @@ package ar.edu.unlam.tallerweb1.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,17 +17,17 @@ public class Comuna {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
 	private Long id;
 	
-	@Column(name="nombre")
 	private String nombre;
 
+	
+	// RELACIONES
 	@OneToMany(mappedBy="comuna")
 	private List<Barrio> barrio = new ArrayList<>();
 
 	
-	
+	// CONSTRUCTORES	
 	public Comuna() {
 	}
 
@@ -38,8 +37,7 @@ public class Comuna {
 	}
 
 	
-	
-	
+	// GET SET
 	public Long getId() {
 		return id;
 	}

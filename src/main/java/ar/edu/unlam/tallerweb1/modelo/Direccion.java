@@ -2,13 +2,13 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,17 +19,15 @@ public class Direccion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
 	private Long id;
 	
-	@Column(name="calle")
 	private String calle;
-	
-	@Column(name="numero")
 	private String numero;
 
+	
+	
 	// RELACIONES
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumn(name="barrio_id")
 	private Barrio barrio;
 	
@@ -38,9 +36,7 @@ public class Direccion {
 	private Farmacia farmacia;
 
 
-	
-	
-	
+	// CONSTRUCTORES
 	public Direccion() {
 	}
 	
@@ -63,7 +59,8 @@ public class Direccion {
 		this.farmacia = farmacia;
 	}
 
-
+	
+	// GETTERS SETTERS
 	public Long getId() {
 		return id;
 	}

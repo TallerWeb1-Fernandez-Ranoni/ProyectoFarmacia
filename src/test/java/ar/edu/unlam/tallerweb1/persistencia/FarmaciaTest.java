@@ -1,18 +1,21 @@
 /*
-1- Montar el entorno java y subir un proyecto en común en github. Enviar el link para mirar los commits en
-github, se validará que existan “push” de ambos miembros del equipo.
-Se muestra ejemplo de cómo debería verse (no pasar screenshots, con la entrega del TP debe incluir la URL del
-proyecto en github)
+	TRABAJO PRACTICO 1 - TALLER WEB 1
+	---------------------------------
+ 
+1) 	Montar el entorno java y subir un proyecto en común en github. Enviar el link para mirar los commits en
+	github, se validará que existan “push” de ambos miembros del equipo.
+	Se muestra ejemplo de cómo debería verse (no pasar screenshots, con la entrega del TP debe incluir la URL del
+	proyecto en github)
 
-2- Hacer con junit un test que busque todas las farmacias de turno los días martes.
+2) 	Hacer con junit un test que busque todas las farmacias de turno los días martes.
 
-3- Hacer con junit un test que busque todas las farmacias de una calle.
+3) 	Hacer con junit un test que busque todas las farmacias de una calle.
 
-4- Hacer con junit un test que busque todas las farmacias de un barrio.
+4) 	Hacer con junit un test que busque todas las farmacias de un barrio.
 
-5- Usando path variables, hacer un action que reciba una operación y sus dos operandos y que lleve a una vista
-que muestra la siguiente frase “El resultado de s umar 3 y 6 da 9 ”. En caso que no pueda realizarse la operación
-se debe llevar a otra vista diferente donde se muestra un mensaje descriptivo.
+5) 	Usando path variables, hacer un action que reciba una operación y sus dos operandos y que lleve a una vista
+	que muestra la siguiente frase “El resultado de s umar 3 y 6 da 9 ”. En caso que no pueda realizarse la operación
+	se debe llevar a otra vista diferente donde se muestra un mensaje descriptivo.
 */
 
 
@@ -32,11 +35,16 @@ import ar.edu.unlam.tallerweb1.modelo.Barrio;
 import ar.edu.unlam.tallerweb1.modelo.Direccion;
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 
+
+
 public class FarmaciaTest extends SpringTest {
 
+	
+	//2- Hacer con junit un test que busque todas las farmacias de turno los días martes.
 	@Test
 	@Transactional
-	@Rollback
+	@Rollback(true)
+	@SuppressWarnings("unchecked")		// para que no me tire los warning
 	public void testBuscarFarmaciasTurnoMartes() {
 
 
@@ -65,21 +73,27 @@ public class FarmaciaTest extends SpringTest {
 		getSession().save(farmacia4);
 		
 		
-		//2- Hacer con junit un test que busque todas las farmacias de turno los días martes.
-		@SuppressWarnings("unchecked")
 		List<Farmacia> resultado = 	getSession().createCriteria(Farmacia.class)
 									.add(Restrictions.eq("diaDeTurno", "Martes"))
 									.list();	
 		
-		assertThat(resultado).hasSize(2);
+		assertThat(resultado).hasSize(2);		 // cantidad de registros
+	
+
+		for (Farmacia farma : resultado) {
+			assertThat(farma.getDiaDeTurno()).isEqualTo("Martes");		// es Martes?
+		}
 		
 	}
 	
 	
 	
+	
+	//3- Hacer con junit un test que busque todas las farmacias de una calle.
 	@Test
 	@Transactional
-	@Rollback
+	@Rollback(true)
+	@SuppressWarnings("unchecked")
 	public void testBuscarFarmaciasDeUnaCalle() {
 
 		Direccion direccion1 = new Direccion("Riobamba", "1234");
@@ -92,7 +106,7 @@ public class FarmaciaTest extends SpringTest {
 		getSession().save(direccion3);
 		
 		Direccion direccion4 = new Direccion("Av de Mayo", "6666");
-		getSession().save(direccion3);
+		getSession().save(direccion4);
 		
 		
 		
@@ -125,8 +139,6 @@ public class FarmaciaTest extends SpringTest {
 		getSession().save(farmacia4);
 		
 		
-		//3- Hacer con junit un test que busque todas las farmacias de una calle.
-		@SuppressWarnings("unchecked")
 		List<Farmacia> resultado = 	getSession().createCriteria(Farmacia.class)
 									.createAlias("direccion", "d")
 									.add(Restrictions.eq("d.calle", "Callao"))
@@ -134,17 +146,20 @@ public class FarmaciaTest extends SpringTest {
 		
 		assertThat(resultado).hasSize(2);
 		
-		
-//		List<?> resultado = getSession().createCriteria(Farmacia.class).createAlias("direccion", "d").add(Restrictions.eq("d.calle", "Riobamba")).list();
-//		assertThat(resultado).hasSize(1);
-		
+		for (Farmacia farma : resultado){
+			assertThat(farma.getDireccion().getCalle()).isEqualTo("Callao");
+		}
 		
 	}
 	
 	
+	
+	
+	//4- Hacer con junit un test que busque todas las farmacias de un barrio.
 	@Test
 	@Transactional
-	@Rollback
+	@Rollback(true)
+	@SuppressWarnings("unchecked")
 	public void testBuscarFarmaciasDeUnBarrio() {
 
 		Barrio barrioBarracas = new Barrio("Barracas");
@@ -165,7 +180,7 @@ public class FarmaciaTest extends SpringTest {
 		getSession().save(direccion1);
 		
 		Direccion direccion2 = new Direccion("Callao", "4567");
-		direccion2.setBarrio(barrioAlmagro);
+		direccion2.setBarrio(barrioAlmagro);						
 		getSession().save(direccion2);
 		
 		Direccion direccion3 = new Direccion("Callao", "9876");
@@ -206,15 +221,18 @@ public class FarmaciaTest extends SpringTest {
 		getSession().save(farmacia4);
 		
 		
-		//4- Hacer con junit un test que busque todas las farmacias de un barrio.
-		//@SuppressWarnings("unchecked")
-		List<?> resultado = 	getSession().createCriteria(Farmacia.class)
+		List<Farmacia> resultado = 	getSession().createCriteria(Farmacia.class)
 									.createAlias("direccion", "d")
 									.createAlias("d.barrio", "b")
 									.add(Restrictions.eq("b.nombre", "Almagro"))
 									.list();
 		
+		
 		assertThat(resultado).hasSize(2);
+		
+		for (Farmacia farma : resultado) {
+			assertThat(farma.getDireccion().getBarrio().getNombre()).isEqualTo("Almagro");
+		}
 		
 		
 	}
@@ -222,7 +240,4 @@ public class FarmaciaTest extends SpringTest {
 	
 	
 	
-	
-	
-
 } // FIN TEST

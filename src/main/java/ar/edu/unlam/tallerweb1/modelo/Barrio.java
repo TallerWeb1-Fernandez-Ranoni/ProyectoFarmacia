@@ -1,7 +1,9 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,16 +21,14 @@ public class Barrio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
 	private Long id;
 	
-	@Column(name="nombre")
 	private String nombre;
 	
 	
 	// RELACIONES
-	@OneToOne(mappedBy="barrio")
-	private Direccion direccion;
+	@OneToMany(mappedBy="barrio")
+	private List<Direccion> direccion = new ArrayList<>();
 	
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumn(name="comuna_id")
@@ -43,7 +43,7 @@ public class Barrio {
 		this.nombre = nombre;
 	}
 
-	public Barrio(String nombre, Direccion direccion, Comuna comuna) {
+	public Barrio(String nombre, List<Direccion> direccion, Comuna comuna) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.comuna = comuna;
@@ -67,11 +67,11 @@ public class Barrio {
 		this.nombre = nombre;
 	}
 
-	public Direccion getDireccion() {
+	public List<Direccion> getDireccion() {
 		return direccion;
 	}
 
-	public void setDireccion(Direccion direccion) {
+	public void setDireccion(List<Direccion> direccion) {
 		this.direccion = direccion;
 	}
 

@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 
-@Controller
+@Controller									
 public class FarmaciaController {
 	
 	@RequestMapping(path = "/verFarmacia", method = RequestMethod.GET)
-	public ModelAndView mostrarFarmacia() {
+	public ModelAndView verFarmacia() {
 		
 		Farmacia miFarmacia = new Farmacia();
 		miFarmacia.setNombre("DR AHORRO");

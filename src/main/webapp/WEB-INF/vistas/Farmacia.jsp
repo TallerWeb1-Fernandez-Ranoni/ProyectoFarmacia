@@ -4,17 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Bienvenidos a la Farmacia Virtual</title>
 </head>
 <body>
 
 
-<h2>Ver Mi Farmacia</h2><br/>
-<hr />
-
+<h2>Ver Mi Farmacia</h2>
+<hr class="colorgraph">
+<br />
 
 <h3>NOMBRE: ${clave.nombre }</h3>
 <h3>TELEFONO: ${clave.telefono }</h3>
+<h3>TURNO: ${clave.diaDeTurno }</h3>
 
 </body>
 </html>
