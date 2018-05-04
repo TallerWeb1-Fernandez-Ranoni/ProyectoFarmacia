@@ -24,5 +24,7 @@ public class FarmaciaController {
 		
 		return new ModelAndView("Farmacia",modelo);
 	}
+	
+	
 
 }
