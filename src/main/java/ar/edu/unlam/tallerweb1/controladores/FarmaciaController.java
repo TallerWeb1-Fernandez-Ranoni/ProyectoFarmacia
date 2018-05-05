@@ -11,6 +11,8 @@ import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 @Controller									
 public class FarmaciaController {
 	
+	
+//	http://localhost:8080/ProyectoFarmacia/verFarmacia	
 	@RequestMapping(path = "/verFarmacia", method = RequestMethod.GET)
 	public ModelAndView verFarmacia() {
 		
@@ -26,5 +28,4 @@ public class FarmaciaController {
 	}
 	
 	
-
 }

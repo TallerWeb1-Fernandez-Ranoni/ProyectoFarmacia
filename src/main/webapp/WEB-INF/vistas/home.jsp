@@ -11,6 +11,7 @@
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -42,47 +43,56 @@
             </div>
         </div>
     </div>
+    
+    
+    
     <div class="container body-content">
         
 		<div class="jumbotron">
-    <h1>Spring MVC</h1>
-    <p class="lead">Spring MVC is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+		    <h1>Spring MVC</h1>
+		    <p class="lead">Spring MVC is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+		    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+		</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-		
+		<div class="row">
+    		<div class="col-md-4">
+        		<h2>Getting started</h2>
+        		<p>
+		            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+		            enables a clean separation of concerns and gives you full control over markup
+		            for enjoyable, agile development.
+        		</p>
+	      	  <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+	    	</div>
+    	
+		    <div class="col-md-4">
+		        <h2>Get more libraries</h2>
+		        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+		        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+		    </div>
+	    
+		    <div class="col-md-4">
+		        <h2>Web Hosting</h2>
+		        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+		        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+		    </div>
 
-
-
-        <hr />
-        <footer>
-            <p>&copy; Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
+	        <hr />
+	        
+	        <footer>
+	            <p>&copy; Mi aplicación ASP.NET</p>
+	        </footer>
+        
+    	</div> <!-- ROW -->
+    	
+    </div> <!-- CONTAINER -->
+    
 
     <!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		
 </body>
+
 </html>
