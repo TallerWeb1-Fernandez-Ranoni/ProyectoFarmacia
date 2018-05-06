@@ -41,6 +41,12 @@ public class Farmacia {
 	public Farmacia() {
 	}
 	
+	public Farmacia(String nombre, String telefono) {
+		this.nombre = nombre;
+		this.telefono = telefono;
+	}
+	
+	
 	public Farmacia(String nombre, String telefono, String diaDeTurno) {
 		this.nombre = nombre;
 		this.telefono = telefono;
