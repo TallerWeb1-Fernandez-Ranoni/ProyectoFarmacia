@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,29 +71,31 @@
 		        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
 		        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
 		    </div>
-	    
+		    
 		    <div class="col-md-4">
 		        <h2>Web Hosting</h2>
 		        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
 		        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
 		    </div>
-
-	        <hr />
-	        
-	        <footer>
-	            <p>&copy; Mi aplicación ASP.NET</p>
-	        </footer>
         
     	</div> <!-- ROW -->
     	
-    </div> <!-- CONTAINER -->
+    </div> <!-- CONTAINER BODY -->
     
-
-    <!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+    
+    
 		
 </body>
+
+<footer>
+	<br />
+	<p class="text-center">&copy; Mi aplicación Spring MVC</p>
+</footer>
+   
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 </html>

@@ -1,12 +1,17 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Controller
 public class MiControlador {
@@ -97,6 +102,33 @@ public class MiControlador {
 		return new ModelAndView("calcular",modelo);
 		
 	}
+	
+	
+	
+//	http://localhost:8080/ProyectoFarmacia/registrarUsuario	
+	@RequestMapping("/registrarUsuario")
+	public ModelAndView registrarUsuario() {
+
+		ModelMap modelo = new ModelMap();
+		
+		Usuario usuario = new Usuario();
+		modelo.put("usuario", usuario);
+
+		return new ModelAndView("registroUsuario", modelo);
+	}
+	
+	
+//	http://localhost:8080/ProyectoFarmacia/validarRegistroUsuario
+	@RequestMapping(path = "/validarRegistroUsuario", method = RequestMethod.POST)
+	public ModelAndView validarRegistroUsuario(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
+		
+		ModelMap model = new ModelMap();
+		model.put("keyUsuario", usuario);
+
+		return new ModelAndView("registroExitoso",model);
+
+	}
+	
 	
 	
 	
