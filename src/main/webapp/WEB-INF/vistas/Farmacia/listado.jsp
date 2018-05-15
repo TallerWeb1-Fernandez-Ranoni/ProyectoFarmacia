@@ -15,9 +15,6 @@
     <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
-
-	<button class="btn btn-danger"></button>
-	
 	
 	<div class="container">
 	

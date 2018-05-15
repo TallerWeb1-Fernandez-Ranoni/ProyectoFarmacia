@@ -17,7 +17,7 @@ import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 @Controller									
 public class FarmaciaController {
 	
-	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	http://localhost:8080/ProyectoFarmacia/verFarmacia	
 	@RequestMapping(path = "/verFarmacia", method = RequestMethod.GET)
 	public ModelAndView verFarmacia() {
@@ -30,12 +30,11 @@ public class FarmaciaController {
 		ModelMap modelo = new ModelMap();
 		modelo.put("clave", miFarmacia);
 		
-		return new ModelAndView("farmacia",modelo);
+		return new ModelAndView("Farmacia/farmacia",modelo);
 	}
 	
 	
-	
-	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 //	EJERCICIO LISTAR OBJETOS EN UNA TABLA, DESDE EL CONTROLADOR A LA VISTA
 	
 //	http://localhost:8080/ProyectoFarmacia//mostrarTabla/7
@@ -51,7 +50,7 @@ public class FarmaciaController {
 		ModelMap model = new ModelMap();
 		model.addAttribute("keyModel", listaFarma);
 		
-		return new ModelAndView("listado",model);
+		return new ModelAndView("Farmacia/listado",model);
 		
 		
 	}

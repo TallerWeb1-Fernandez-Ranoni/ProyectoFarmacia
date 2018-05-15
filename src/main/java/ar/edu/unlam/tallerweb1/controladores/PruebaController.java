@@ -13,9 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
+
+
 @Controller
-public class MiControlador {
+public class PruebaController {
 	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	http://localhost:8080/ProyectoFarmacia/saludar
 	@RequestMapping(path = "saludar", method = RequestMethod.GET)
 	public ModelAndView saludar() {		
@@ -23,7 +26,7 @@ public class MiControlador {
 		ModelMap modelo = new ModelMap();
 		modelo.put("sal", "Hola ke asee!");
 		
-		return new ModelAndView("saludo",modelo);
+		return new ModelAndView("Prueba/saludo",modelo);
 	}
 	
 	
@@ -35,7 +38,7 @@ public class MiControlador {
 		modelo.put("nom", nombre);
 		modelo.put("ape", apellido);
 		
-		return new ModelAndView("saludoConRequestParam",modelo);
+		return new ModelAndView("Prueba/saludoConRequestParam",modelo);
 	}
 	
 //	http://localhost:8080/ProyectoFarmacia/saludar3/Diego/Maradona
@@ -46,12 +49,11 @@ public class MiControlador {
 		modelo.put("nom", nombre);
 		modelo.put("ape", apellido);
 		
-		return new ModelAndView("saludoConPathVariable",modelo);
+		return new ModelAndView("Prueba/saludoConPathVariable",modelo);
 	}
 	
 	
-	
-	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	5) 	Usando path variables, hacer un action que reciba una operación y sus dos operandos y que lleve a una vista
 //	que muestra la siguiente frase “El resultado de s umar 3 y 6 da 9 ”. En caso que no pueda realizarse la operación
 //	se debe llevar a otra vista diferente donde se muestra un mensaje descriptivo.
@@ -89,22 +91,21 @@ public class MiControlador {
 			 catch(ArithmeticException excepcion) 
 			{
 				 modelo.put("keyerror",excepcion);
-				 return new ModelAndView("errorEnOperador",modelo);
+				 return new ModelAndView("Prueba/errorEnOperador",modelo);
 			 }
 			
 			break;
 			
 		default: 
-			return new ModelAndView("errorDeOperacion",modelo);
+			return new ModelAndView("Prueba/errorDeOperacion",modelo);
 			
 		}
 		
-		return new ModelAndView("calcular",modelo);
+		return new ModelAndView("Prueba/calcular",modelo);
 		
 	}
 	
-	
-	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	http://localhost:8080/ProyectoFarmacia/registrarUsuario	
 	@RequestMapping("/registrarUsuario")
 	public ModelAndView registrarUsuario() {
@@ -114,7 +115,7 @@ public class MiControlador {
 		Usuario usuario = new Usuario();
 		modelo.put("usuario", usuario);
 
-		return new ModelAndView("registroUsuario", modelo);
+		return new ModelAndView("Prueba/registroUsuario", modelo);
 	}
 	
 	
@@ -125,7 +126,7 @@ public class MiControlador {
 		ModelMap model = new ModelMap();
 		model.put("keyUsuario", usuario);
 
-		return new ModelAndView("registroExitoso",model);
+		return new ModelAndView("Prueba/registroExitoso",model);
 
 	}
 	
